@@ -15,7 +15,16 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-right navbar-nav nav-center">
         <li >
-          <a href="#">Logout</a>
+        <?php if(isset($_SESSION['username'])): ?>
+          <a href="index.php?controller=logout">Logout</a>
+        <?php else: ?>
+          <a href="index.php?controller=signin">Login</a>
+        <?php endif ?>
+        </li>
+        <li>
+          <?php if(!isset($_SESSION['username'])): ?>
+            <a href="index.php?controller=signup">Signup</a>
+          <?php endif ?>         
         </li>
       </ul>
     </div><!-- /.navbar-collapse -->
